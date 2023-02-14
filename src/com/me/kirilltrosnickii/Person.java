@@ -1,27 +1,30 @@
 package com.me.kirilltrosnickii;
 
 public class Person {
-    String personName;
-    String personSurname;
-    String personCity;
-    int personPhone;
+
 
     public Person(String name, String surname, String city, int phone) {
-        personName = name;
-        personSurname = surname;
-        personCity = city;
-        personPhone = phone;
+        this.name = name;
+        this.surname = surname;
+        this.city = city;
+        this.phone = phone;
     }
+
+    private final String name;
+    private final String surname;
+    private final String city;
+    private final int phone;
 
     public static void main(String[] args) {
-        System.out.println(personInfo("Kyrylo", "Trosnytskyi", "Odesa", 12345678));
-        System.out.println(personInfo("Bilbo", "Baggins", "Mordor", 12345678));
-        System.out.println(personInfo("Mister", "Bombastic", "Bombafantastic", 12345678));
+        Person person = new Person("Bilbo", "Baggins", "Mordor", 123456);
+        Person person1 = new Person("Thomas", "Anderson", "New-York", 9876543);
+        Person person2 = new Person("Kyrylo", "Trosnytskyi", "Odesa", 66997);
+        System.out.println(person.personInfo());
+        System.out.println(person1.personInfo());
+        System.out.println(person2.personInfo());
     }
 
-    public static String personInfo(String name, String surname, String city, int phone) {
-        Person obj = new Person(name, surname, city, phone);
-        String result = String.format("You can call to person %s %s from city %s with number %s", obj.personName, obj.personSurname, obj.personCity, obj.personPhone);
-        return result;
+    public String personInfo() {
+        return "Зателефонувати громадянину " + name + " " + surname + " з міста " + city + " " + "можна за номером " + phone;
     }
 }
